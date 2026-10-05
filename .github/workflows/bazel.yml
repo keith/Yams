@@ -62,7 +62,9 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1.13.0
         with:
           arch: x64
-      - uses: bazelbuild/setup-bazelisk@v3
+      - uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          bazelisk-version: 1.x
       - name: Yams tests
         # The fixture tests read files relative to the runfiles directory.
-        run: bazel test --enable_runfiles //Tests:UnitTests
+        run: bazel.exe test --enable_runfiles //Tests:UnitTests
